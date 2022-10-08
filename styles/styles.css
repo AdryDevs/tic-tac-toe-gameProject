@@ -1,21 +1,10 @@
 * {
-    user-select: none;
+    /* user-select: none; */
 }
 
 .main {
     background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
-}
-
-:root {
-    --fill-color: #49b293;
-    --secondary-color: #3d8bb1;
-    --stroke-color: #1d2a53;
-    --white: white;
-    --red: #e74c3c;
-  }
-
-.logo-nav {
-    height: 7vh;
+    
 }
 
 .nav-link {
@@ -23,11 +12,24 @@
     text-decoration: none;
     font-size: 2.7vw;
     font-family: 'Peralta', cursive;
-   
-
 }
 
 .nav-link:hover {
     color: red;
     transition: 0.7s;
+}
+
+img {
+    width: 60%;
+}
+
+.casilla {
+    background-color: rgb(26, 123, 214);
+    border: 3px solid red;
+    aspect-ratio: 1;
+}
+
+.columna-tablero{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
