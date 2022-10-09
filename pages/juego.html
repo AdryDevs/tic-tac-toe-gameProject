@@ -81,29 +81,39 @@
                     </div>
                 </div>
 
-                        <!-- Game table -->
+                <!-- Buttons  --> 
+
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-3 text-end ">
+                        <button id="start" type="button" class="btn btn-outline-success">Start Game</button>
+                    </div>
+                    <div class="col-3 text-end">
+                        <button id="reset" type="button" class="btn btn-outline-danger">Reset</button>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+
+                        <!-- Game board -->
 
                 <div class="row p-5">
                     <div class="col-2"></div>
                     <div class="col-8 columna-tablero">
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
-                        <div class="casilla"></div>
+                        <button onclick="DrawCircle()" id="c1"><div id="d1" class="casilla"><p id="p1"></p></div></button>
+                        <button id="c2"><div id="d2" class="casilla"></div></button>
+                        <button id="c3"><div id="d3" class="casilla"></div></button>
+                        <button id="c4"><div id="d4" class="casilla"></div></button>
+                        <button id="c5"><div id="d5" class="casilla"></div></button>
+                        <button id="c6"><div id="d6" class="casilla"></div></button>
+                        <button id="c7"><div id="d7" class="casilla"></div></button>
+                        <button id="c8"><div id="d8" class="casilla"></div></button>
+                        <button id="c9"><div id="d9" class="casilla"></div></button>
                     </div>
-                    <div class="col-2"></div>
-                </div>   
+                    <div class="col-2"></div>       
+                </div>                  
             </div>
         </div>
     </div>
-
-
-
 
     <script src="js/main.js"></script>
 </body>

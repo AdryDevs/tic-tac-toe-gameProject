@@ -1,10 +1,10 @@
 * {
-    /* user-select: none; */
+    user-select: none;
 }
 
 .main {
     background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
-    
+    height: 100vh;
 }
 
 .nav-link {
@@ -32,4 +32,15 @@ img {
 .columna-tablero{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+p {
+    font-size: 40px;
+    color: white;
 }
