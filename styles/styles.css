@@ -1,21 +1,26 @@
 * {
     user-select: none;
+
+    
 }
 
-.main {
-    background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
+.main { 
     height: 100vh;
+    background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
 }
 
 .nav-link {
     color: rgb(121, 108, 238);
+
     text-decoration: none;
+
     font-size: 2.7vw;
     font-family: 'Peralta', cursive;
 }
 
 .nav-link:hover {
     color: red;
+
     transition: 0.7s;
 }
 
@@ -23,24 +28,37 @@ img {
     width: 60%;
 }
 
-.casilla {
+.cell {
     background-color: rgb(26, 123, 214);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: cyan;
+
     border: 3px solid red;
     aspect-ratio: 1;
+
+    cursor: pointer;
+
+    font-size: 160px;
 }
 
-.columna-tablero{
+.cell:hover {
+    transition: 0.4s;
+    background-color: rgb(6, 32, 150);
+}
+
+.board-column{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-button {
-    padding: 0;
-    border: none;
-    background: none;
-}
+.playerDisplay {
+    height: 3em;
+    width: 3em;
 
-p {
     font-size: 40px;
-    color: white;
+    color: red;
 }

@@ -50,17 +50,32 @@
                         <img src="../img/player2_logo.jpg" alt="" class="img-fluid">
                     </div> 
                 </div>
+
                         <!-- Selectors -->
+
+                <div class="row">
+                    <div class="col-6 p-3 d-flex justify-content-center">
+                        <input id="player1" type="text" value="" placeholder="Player 1"/>
+                    </div>
+                    <div class="col-6 p-3 d-flex justify-content-center">
+                        <input id="player2" type="text" value="" placeholder="Player 2"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                </div>
 
                 <div class="row p-5">
                     <div class="col-6">
-                        <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
+                        <select id="selectorPlayer1" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                             <option selected>Player or CPU</option>
                             <option value="1">Player</option>
                             <option value="2">CPU</option>
                           </select>
                           
-                          <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                          <select id="signPlayer1" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Select X or O</option>
                             <option value="1">X</option>
                             <option value="2">O</option>
@@ -73,7 +88,7 @@
                             <option value="2">CPU</option>
                           </select>
                           
-                          <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                          <select id="signPlayer2" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Select X or O</option>
                             <option value="1">X</option>
                             <option value="2">O</option>
@@ -89,25 +104,27 @@
                         <button id="start" type="button" class="btn btn-outline-success">Start Game</button>
                     </div>
                     <div class="col-3 text-end">
-                        <button id="reset" type="button" class="btn btn-outline-danger">Reset</button>
+                        <a href="javascript:location.reload(true)"><button id="reset" type="button" class="btn btn-outline-danger">Reset</button></a>
                     </div>
                     <div class="col-2"></div>
                 </div>
 
-                        <!-- Game board -->
+                    <!-- Game board -->
 
                 <div class="row p-5">
-                    <div class="col-2"></div>
-                    <div class="col-8 columna-tablero">
-                        <button onclick="DrawCircle()" id="c1"><div id="d1" class="casilla"><p id="p1"></p></div></button>
-                        <button id="c2"><div id="d2" class="casilla"></div></button>
-                        <button id="c3"><div id="d3" class="casilla"></div></button>
-                        <button id="c4"><div id="d4" class="casilla"></div></button>
-                        <button id="c5"><div id="d5" class="casilla"></div></button>
-                        <button id="c6"><div id="d6" class="casilla"></div></button>
-                        <button id="c7"><div id="d7" class="casilla"></div></button>
-                        <button id="c8"><div id="d8" class="casilla"></div></button>
-                        <button id="c9"><div id="d9" class="casilla"></div></button>
+                    <div class="col-2 d-flex align-center">
+                        <div id="Player1Display" class="playerDisplay"></div>
+                    </div>
+                    <div class="col-8 board-column">
+                        <div id="d1" class="cell"></div>
+                        <div id="d2" class="cell"></div>
+                        <div id="d3" class="cell"></div>
+                        <div id="d4" class="cell"></div>
+                        <div id="d5" class="cell"></div>
+                        <div id="d6" class="cell"></div>
+                        <div id="d7" class="cell"></div>
+                        <div id="d8" class="cell"></div>
+                        <div id="d9" class="cell"></div>
                     </div>
                     <div class="col-2"></div>       
                 </div>                  
@@ -115,6 +132,8 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <!-- Javascript -->
+
+    <script src="../JS/main.js"></script>
 </body>
 </html>
