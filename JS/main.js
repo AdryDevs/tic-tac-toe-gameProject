@@ -20,16 +20,16 @@ for (let i = 0; i < board.length; i++){
 
 // switch () {
 //     case (board[0][0] == "X") && (board[1][0] == "X") && (board[2][0] == "X"):
-//         winner
+        
 //         break;
 
 //     default:
 //         break;
 // }
 
-    if((board[0][0]=="X") && (board[1][0]=="X") && (board[2][0]=="X")) {
-    alert("The winner is ", );                                      // cambiar a switch! 
-}
+//     if((board[0][0]=="X") && (board[1][0]=="X") && (board[2][0]=="X")) {
+//     alert("The winner is ", );                                      
+// }
 
     //Draw in cell
 
