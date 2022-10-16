@@ -1,6 +1,6 @@
 //Winner combinations
 
-const winner_comb = [
+const winnerComb = [
 	[0, 1, 2],
 	[3, 4, 5],
 	[6, 7, 8],
@@ -14,7 +14,7 @@ const winner_comb = [
     //Check 
 
 function checkWin(playerTurn) {
-	return winner_comb.some(comb => {
+	return winnerComb.some(comb => {
 		return comb.every(index => {
 			return cellList[index].innerHTML === playerTurn;
 		});
@@ -37,7 +37,6 @@ cellList.map((cell)=>{
             } else if (draw()) {
                 alert('It is a draw!');
             }
-
             gameTurnFlag = !gameTurnFlag;
         };
     });
@@ -64,15 +63,11 @@ const player2 = {
     selector: document.getElementById("signPlayer2")   
 }
 
-if (player1.selector === "CPU"){
-    player1.name = "CPU";
-}
-
-if (player2.selector == "CPU"){
+if (player2.selector == "CPU"){     //NOT WORKING!!!!!
     player2.name = "CPU";
 }
 
-// Converting and saving players' data in sesionStorage
+// Saving players' data in sesionStorage
 
 function saveData () {
     let player1Data = document.getElementById('player1');
@@ -85,12 +80,7 @@ function saveData () {
     sessionStorage.setItem("Player2Data", player2DataValue);
 }
 
-
-
-// Re-converting and getting the players' data from the sesionStorage
-
-
-
+// Getting the players' data from the sesionStorage
     
     function getInfo () {
         document.getElementById('Player1Display').innerHTML = sessionStorage.getItem('Player1Data');
@@ -116,8 +106,8 @@ const start = document.getElementById("start");
 const gameBoard = document.getElementById("gameBoard");
 
 start.addEventListener('click', () => {
-    saveData();
-    gameBoard.classList.remove('visually-hidden');  //removing the hidden class so it shows up!
+    saveData();   
+    gameBoard.classList.remove('visually-hidden');  //removes the hidden class so the board shows up
     getInfo();
 });
 
@@ -127,6 +117,8 @@ start.addEventListener('click', () => {
 // example: a = [1, 3, 4, 7]
 // randomPos = Math.random(0, a.length - 1)
 // cellList[randomPos] = turn
+
+// Show winner's name and not X or O
 
 
 
