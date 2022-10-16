@@ -26,7 +26,7 @@ body {
 }
 
 img {
-    width: 60%;
+    width: 80%;
 }
 
 .cell {
@@ -43,6 +43,7 @@ img {
 
     cursor: pointer;
 
+    font-size: 9vw;
 }
 
 .cell:hover {
