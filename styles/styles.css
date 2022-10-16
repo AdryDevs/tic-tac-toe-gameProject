@@ -1,12 +1,13 @@
 * {
     user-select: none;
+}
 
-    
+body {
+    background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
 }
 
 .main { 
     height: 100vh;
-    background-image: url(https://c1.wallpaperflare.com/preview/295/958/495/tic-tac-toe-empty-fields-puzzles-play.jpg);
 }
 
 .nav-link {
@@ -42,7 +43,6 @@ img {
 
     cursor: pointer;
 
-    font-size: 160px;
 }
 
 .cell:hover {

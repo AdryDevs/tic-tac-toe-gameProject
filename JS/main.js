@@ -12,10 +12,23 @@ for (let i = 0; i < board.length; i++){
 
 }
 
+    //Winner pop up
+
+
+
     //Winning moves
 
-if((board[0][0]=="X") && (board[1][0]=="X") && (board[2][0]=="X")) {
-    alert("The winner is ", );
+// switch () {
+//     case (board[0][0] == "X") && (board[1][0] == "X") && (board[2][0] == "X"):
+//         winner
+//         break;
+
+//     default:
+//         break;
+// }
+
+    if((board[0][0]=="X") && (board[1][0]=="X") && (board[2][0]=="X")) {
+    alert("The winner is ", );                                      // cambiar a switch! 
 }
 
     //Draw in cell
@@ -82,9 +95,7 @@ let player2Reconv = JSON.parse(storageDataPlayer2);
 
 //Player's Display
 
-let displayPlayer1 = document.getElementById("Player1Display");
 
-displayPlayer1.innerHTML = player1.name;
 
 // New Game
 
@@ -102,21 +113,3 @@ if(start = false){
 
 //Reset
 
-
-// Draw circle with transition?????
-
-
-    // circle.enter().append("circle")
-    //     .attr("class", "dot");
-
-    // circle
-    //     .attr("r", 5)
-    //     .attr("cy", 20)
-    //     .attr("cx", function(d,i){return i*50;})
-    //     .attr("fill", "red");
-
-    // svg.selectAll("circle")
-    //     .style("opacity", 0)
-    //     .transition()
-    //     .duration(1000)
-    //     .style("opacity", 1);
