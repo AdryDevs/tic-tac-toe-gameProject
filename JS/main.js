@@ -1,115 +1,118 @@
-// Board
+//Winner combinations
 
-let board = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0]
-];
+const winner_comb = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6]
+]
 
-    //Counting
+    //Check 
 
-for (let i = 0; i < board.length; i++){
-
+function checkWin(playerTurn) {
+	return winner_comb.some(comb => {
+		return comb.every(index => {
+			return cellList[index].innerHTML === playerTurn;
+		});
+	})
 }
 
-    //Winner pop up
+// Draw in cell
 
-
-
-    //Winning moves
-
-// switch () {
-//     case (board[0][0] == "X") && (board[1][0] == "X") && (board[2][0] == "X"):
-        
-//         break;
-
-//     default:
-//         break;
-// }
-
-//     if((board[0][0]=="X") && (board[1][0]=="X") && (board[2][0]=="X")) {
-//     alert("The winner is ", );                                      
-// }
-
-    //Draw in cell
-
-let cellsCollection = document.getElementsByClassName("cell");
-
-let cells = Array.from(cellsCollection);
-
-let switching = true;
-
-cells.map((cell)=>{
+const cellsCollection = document.getElementsByClassName("cell");
+const cellList = Array.from(cellsCollection);
+let gameTurnFlag = true; // True represents Player 1 - False represents Player 2
+cellList.map((cell)=>{
     cell.addEventListener('click',()=>{
-        if(cell.innerHTML == ""){
-            cell.innerHTML = (switching) ? "X" : "O";
-            switching = !switching;
+        let turn = gameTurnFlag ? 'X' : 'O';
+        if (cell.innerHTML == "") {
+            cell.innerHTML = turn;
+            if (checkWin(turn)) {
+                alert(`${turn} won the game`);
+                resetGame();
+            } else if (draw()) {
+                alert('It is a draw!');
+            }
+
+            gameTurnFlag = !gameTurnFlag;
         };
     });
 });
 
-
-// Check if cell is active or not to draw
-
-// si la posición es = 0 ("") entonces pinto círculo o X, si no es ="" no pinto
-
+function draw() {
+	return cellList.every(cell => {
+		return cell.innerHTML === 'X' || cell.innerHTML === 'O';
+	})
+}
 
 // Players
 
-let player1 = {
+const player1 = {
     player: document.getElementById("selectorPlayer1").value, //CPU o Player?
     name: document.getElementById("player1"),  //Player's name
     selector: document.getElementById("signPlayer1")   // X or O?
 }
 
 
-let player2 = {
+const player2 = {
     player: document.getElementById("selectorPlayer2").value, 
     name: document.getElementById("player2"),  
     selector: document.getElementById("signPlayer2")   
 }
 
-if(document.getElementById("slectorPlayer1").value == "CPU"){
+if (player1.selector === "CPU"){
     player1.name = "CPU";
 }
 
-if(document.getElementById("slectorPlayer2").value == "CPU"){
+if (player2.selector == "CPU"){
     player2.name = "CPU";
 }
 
-    //Converting and saving players' data in sesionStorage
+// Converting and saving players' data in sesionStorage
+// sessionStorage.setItem("Player1Data", JSON.stringify(player1));
+// sessionStorage.setItem("Player2Data", JSON.stringify(player2));
 
-let player1Conv = JSON.stringify(player1);
-let player2Conv = JSON.stringify(player2);
+// // Reconverting and getting the players' data from sesionStorage
+// let storageDataPlayer1 = localStorage.getItem("Player1Data");
+// let storageDataPlayer2 = localStorage.getItem("Player2Data");
 
-sessionStorage.setItem("Player1Data",player1Conv);
-sessionStorage.setItem("Player2Data",player2Conv);
+// let player1Reconv = JSON.parse(storageDataPlayer1);
+// let player2Reconv = JSON.parse(storageDataPlayer2);
 
-    //Reconverting and getting the players' data from sesionStorage
+// Player's Display
 
-let storageDataPlayer1 = localStorage.getItem("Player1Data");
-let storageDataPlayer2 = localStorage.getItem("Player2Data");
+// Reset Game
 
-let player1Reconv = JSON.parse(storageDataPlayer1);
-let player2Reconv = JSON.parse(storageDataPlayer2);
+const reset = document.getElementById("reset");
+reset.addEventListener('click', () => {
+    resetGame();
+});
 
-//Player's Display
-
-
+function resetGame() {
+    cellList.forEach(element => {
+        element.innerHTML = "";
+    });
+}
 
 // New Game
 
-let start = document.getElementById("start");
+const start = document.getElementById("start");
+const gameBoard = document.getElementById("gameBoard");
 
-start = false;
-
-if(start = false){
-    
-};
-
-// Turns
+start.addEventListener('click', () => {
+    gameBoard.classList.remove('visually-hidden');
+});
 
 // CPU (randomize moves)
 
-//Reset
+// 1. look for the cells with no value
+// example: a = [1, 3, 4, 7]
+// randomPos = Math.random(0, a.length - 1)
+// cellList[randomPos] = turn
+
+
 

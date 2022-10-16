@@ -82,7 +82,7 @@
                           </select>
                     </div>
                     <div class="col-6">
-                        <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
+                        <select id="selectorPlayer2" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                             <option selected>Player or CPU</option>
                             <option value="1">Player</option>
                             <option value="2">CPU</option>
@@ -104,27 +104,27 @@
                         <button id="start" type="button" class="btn btn-outline-success">Start Game</button>
                     </div>
                     <div class="col-3 text-end">
-                        <a href="javascript:location.reload(true)"><button id="reset" type="button" class="btn btn-outline-danger">Reset</button></a>
+                        <button id="reset" type="button" class="btn btn-outline-danger">Reset</button></a>
                     </div>
                     <div class="col-2"></div>
                 </div>
 
                     <!-- Game board -->
 
-                <div class="row p-5">
+                <div id="gameBoard" class="row p-5 visually-hidden">
                     <div class="col-2 d-flex align-center">
                         <div id="Player1Display" class="playerDisplay"></div>
                     </div>
                     <div class="col-8 board-column">
-                        <div id="d1" class="cell"></div>
-                        <div id="d2" class="cell"></div>
-                        <div id="d3" class="cell"></div>
-                        <div id="d4" class="cell"></div>
-                        <div id="d5" class="cell"></div>
-                        <div id="d6" class="cell"></div>
-                        <div id="d7" class="cell"></div>
-                        <div id="d8" class="cell"></div>
-                        <div id="d9" class="cell"></div>
+                        <div id="00" class="cell"></div>
+                        <div id="01" class="cell"></div>
+                        <div id="02" class="cell"></div>
+                        <div id="10" class="cell"></div>
+                        <div id="11" class="cell"></div>
+                        <div id="12" class="cell"></div>
+                        <div id="20" class="cell"></div>
+                        <div id="21" class="cell"></div>
+                        <div id="22" class="cell"></div>
                     </div>
                     <div class="col-2"></div>       
                 </div>                  
