@@ -1,7 +1,7 @@
 # tic-tac-toe-gameProject
 
 
-<h2>Technologies used in this project:</h2>
+<h2>Used Technologies:</h2>
 
 <h4>HTML</h4>
 <h4>CSS</h4>
