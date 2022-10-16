@@ -73,17 +73,29 @@ if (player2.selector == "CPU"){
 }
 
 // Converting and saving players' data in sesionStorage
-// sessionStorage.setItem("Player1Data", JSON.stringify(player1));
-// sessionStorage.setItem("Player2Data", JSON.stringify(player2));
 
-// // Reconverting and getting the players' data from sesionStorage
-// let storageDataPlayer1 = localStorage.getItem("Player1Data");
-// let storageDataPlayer2 = localStorage.getItem("Player2Data");
+function saveData () {
+    let player1Data = document.getElementById('player1');
+    let player2Data = document.getElementById('player2');
+    
+    let player1DataValue =  player1Data.value;
+    let player2DataValue =  player2Data.value;
+    
+    sessionStorage.setItem("Player1Data", player1DataValue);
+    sessionStorage.setItem("Player2Data", player2DataValue);
+}
 
-// let player1Reconv = JSON.parse(storageDataPlayer1);
-// let player2Reconv = JSON.parse(storageDataPlayer2);
 
-// Player's Display
+
+// Re-converting and getting the players' data from the sesionStorage
+
+
+
+    
+    function getInfo () {
+        document.getElementById('Player1Display').innerHTML = sessionStorage.getItem('Player1Data');
+        document.getElementById('Player2Display').innerHTML = sessionStorage.getItem('Player2Data');
+    }
 
 // Reset Game
 
@@ -104,7 +116,9 @@ const start = document.getElementById("start");
 const gameBoard = document.getElementById("gameBoard");
 
 start.addEventListener('click', () => {
-    gameBoard.classList.remove('visually-hidden');
+    saveData();
+    gameBoard.classList.remove('visually-hidden');  //removing the hidden class so it shows up!
+    getInfo();
 });
 
 // CPU (randomize moves)
