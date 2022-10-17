@@ -113,8 +113,8 @@ start.addEventListener('click', () => {
 
 // CPU (randomize moves)
 
-// 1. look for the cells with no value
-// example: a = [1, 3, 4, 7]
+// 1. look for the cells with no value      ---    switch with cases to move it and cases ""
+// example: a = [1, 3, 4, 7]   ---     pushing the cells in a new array???
 // randomPos = Math.random(0, a.length - 1)
 // cellList[randomPos] = turn
 
