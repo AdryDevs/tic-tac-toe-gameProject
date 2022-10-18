@@ -1,6 +1,6 @@
 //Winner combinations
 
-const winnerComb = [
+const winMoves = [
 	[0, 1, 2],
 	[3, 4, 5],
 	[6, 7, 8],
@@ -14,7 +14,7 @@ const winnerComb = [
     //Check 
 
 function checkWin(playerTurn) {
-	return winnerComb.some(comb => {
+	return winMoves.some(comb => {
 		return comb.every(index => {
 			return cellList[index].innerHTML === playerTurn;
 		});
@@ -32,7 +32,7 @@ cellList.map((cell)=>{
         if (cell.innerHTML == "") {
             cell.innerHTML = turn;
             if (checkWin(turn)) {
-                alert(`${turn} won the game`);
+                alert(`${turn} wins`);
                 resetGame();
             } else if (draw()) {
                 alert('It is a draw!');
@@ -53,14 +53,12 @@ function draw() {
 const player1 = {
     player: document.getElementById("selectorPlayer1").value, //CPU o Player?
     name: document.getElementById("player1"),  //Player's name
-    selector: document.getElementById("signPlayer1")   // X or O?
 }
 
 
 const player2 = {
     player: document.getElementById("selectorPlayer2").value, 
     name: document.getElementById("player2"),  
-    selector: document.getElementById("signPlayer2")   
 }
 
 if (player2.selector == "CPU"){     //NOT WORKING!!!!!
@@ -113,12 +111,14 @@ start.addEventListener('click', () => {
 
 // CPU (randomize moves)
 
-// 1. look for the cells with no value      ---    switch with cases to move it and cases ""
-// example: a = [1, 3, 4, 7]   ---     pushing the cells in a new array???
-// randomPos = Math.random(0, a.length - 1)
-// cellList[randomPos] = turn
+const CPUMoves = () => {
+    let move = parseInt(Math.random() *9);
+    while (cellList[move].innerHTML !== "") {
+        move = parseInt(Math.random() *9);
+    }
+}
 
-// Show winner's name and not X or O
+// Show winner's name and not X or O  ---   save winner's name on sesion storage in order to show later?????
 
 
 
