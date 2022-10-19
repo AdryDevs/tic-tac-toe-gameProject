@@ -25,8 +25,11 @@ function checkWin(playerTurn) {
 
 const cellsCollection = document.getElementsByClassName("cell");
 const cellList = Array.from(cellsCollection);
+
+    //Player VS Player
+
 let gameTurnFlag = true; // True represents Player 1 - False represents Player 2
-cellList.map((cell)=>{
+const PlayerVSPlayer = () => {cellList.map((cell)=>{
     cell.addEventListener('click',()=>{
         let turn = gameTurnFlag ? 'X' : 'O';
         if (cell.innerHTML == "") {
@@ -40,7 +43,11 @@ cellList.map((cell)=>{
             gameTurnFlag = !gameTurnFlag;
         };
     });
-});
+})};
+
+
+
+    
 
 function draw() {
 	return cellList.every(cell => {
@@ -70,12 +77,18 @@ if (player2.selector == "CPU"){     //NOT WORKING!!!!!
 function saveData () {
     let player1Data = document.getElementById('player1');
     let player2Data = document.getElementById('player2');
+    let selectPlayer2 = document.getElementById("selectPlayer2");
+    
     
     let player1DataValue =  player1Data.value;
     let player2DataValue =  player2Data.value;
+    let selectPlayer2Value = selectPlayer2.value;
+    
+
     
     sessionStorage.setItem("Player1Data", player1DataValue);
     sessionStorage.setItem("Player2Data", player2DataValue);
+    sessionStorage.setItem("selectPlayer2Data", selectPlayer2Value);
 }
 
 // Getting the players' data from the sesionStorage
@@ -83,7 +96,12 @@ function saveData () {
     function getInfo () {
         document.getElementById('Player1Display').innerHTML = sessionStorage.getItem('Player1Data');
         document.getElementById('Player2Display').innerHTML = sessionStorage.getItem('Player2Data');
+        let selectCPU = document.getElementById("selectCPU");
+        let selectCPUValue = selectCPU.value;
+        sessionStorage.setItem("selectCPU", selectCPUValue);  
     }
+
+    
 
 // Reset Game
 
@@ -109,6 +127,18 @@ start.addEventListener('click', () => {
     getInfo();
 });
 
+//Player VS CPU
+
+let Player2_CPU = sessionStorage.getItem('selectCPU');
+
+    if (Player2_CPU == "1") {
+        PlayerVSPlayer()
+    } else {
+        console.log("contra CPU")
+    }  
+
+
+
 // CPU (randomize moves)
 
 const CPUMoves = () => {
@@ -117,6 +147,8 @@ const CPUMoves = () => {
         move = parseInt(Math.random() *9);
     }
 }
+
+
 
 // Show winner's name and not X or O  ---   save winner's name on sesion storage in order to show later?????
 
