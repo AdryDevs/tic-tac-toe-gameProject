@@ -41,6 +41,7 @@ const PlayerVSPlayer = () => {cellList.map((cell)=>{
                 alert('It is a draw!');
             }
             gameTurnFlag = !gameTurnFlag;
+            //evalua jugador cpu si cpu lanza metodo cpu si no return false
         };
     });
 })};
@@ -131,11 +132,11 @@ start.addEventListener('click', () => {
 
 let Player2_CPU = sessionStorage.getItem('selectCPU');
 
-    if (Player2_CPU == "1") {
-        PlayerVSPlayer()
-    } else {
-        console.log("contra CPU")
-    }  
+if (Player2_CPU == "1") {
+    PlayerVSPlayer()
+} else {
+    console.log("contra CPU")
+}  
 
 
 
