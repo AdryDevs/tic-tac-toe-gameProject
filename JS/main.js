@@ -41,14 +41,18 @@ const PlayerVSPlayer = () => {cellList.map((cell)=>{
                 alert('It is a draw!');
             }
             gameTurnFlag = !gameTurnFlag;
+            
+            if (player2.selector == "2") {
+                CPUMoves();
+            } else {
+                false;
+            }  
             //evalua jugador cpu si cpu lanza metodo cpu si no return false
         };
     });
 })};
 
-
-
-    
+PlayerVSPlayer();    
 
 function draw() {
 	return cellList.every(cell => {
@@ -69,10 +73,6 @@ const player2 = {
     name: document.getElementById("player2"),  
 }
 
-if (player2.selector == "CPU"){     //NOT WORKING!!!!!
-    player2.name = "CPU";
-}
-
 // Saving players' data in sesionStorage
 
 function saveData () {
@@ -80,12 +80,9 @@ function saveData () {
     let player2Data = document.getElementById('player2');
     let selectPlayer2 = document.getElementById("selectPlayer2");
     
-    
     let player1DataValue =  player1Data.value;
     let player2DataValue =  player2Data.value;
     let selectPlayer2Value = selectPlayer2.value;
-    
-
     
     sessionStorage.setItem("Player1Data", player1DataValue);
     sessionStorage.setItem("Player2Data", player2DataValue);
@@ -94,13 +91,13 @@ function saveData () {
 
 // Getting the players' data from the sesionStorage
     
-    function getInfo () {
-        document.getElementById('Player1Display').innerHTML = sessionStorage.getItem('Player1Data');
-        document.getElementById('Player2Display').innerHTML = sessionStorage.getItem('Player2Data');
-        let selectCPU = document.getElementById("selectCPU");
-        let selectCPUValue = selectCPU.value;
-        sessionStorage.setItem("selectCPU", selectCPUValue);  
-    }
+function getInfo () {
+    document.getElementById('Player1Display').innerHTML = sessionStorage.getItem('Player1Data');
+    document.getElementById('Player2Display').innerHTML = sessionStorage.getItem('Player2Data');
+    let selectCPU = document.getElementById("selectCPU");
+    let selectCPUValue = selectCPU.value;
+    sessionStorage.setItem("selectCPU", selectCPUValue);  
+}
 
     
 
@@ -132,15 +129,13 @@ start.addEventListener('click', () => {
 
 let Player2_CPU = sessionStorage.getItem('selectCPU');
 
-if (Player2_CPU == "1") {
-    PlayerVSPlayer()
-} else {
-    console.log("contra CPU")
-}  
+if (player2.selector == "2"){     //NOT WORKING!!!!!
+    player2.name = "CPU";
+}
 
 
 
-// CPU (randomize moves)
+    // CPU (randomize moves)
 
 const CPUMoves = () => {
     let move = parseInt(Math.random() *9);
