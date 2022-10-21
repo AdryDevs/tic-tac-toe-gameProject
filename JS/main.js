@@ -35,13 +35,13 @@ const PlayerVSPlayer = () => {cellList.map((cell)=>{
         if (cell.innerHTML == "") {
             cell.innerHTML = turn;
             if (checkWin(turn)) {
-                alert(`${turn} wins`);
+                window.location.href = "../pages/winner.html";
                 resetGame();
             } else if (draw()) {
                 alert('It is a draw!');
             }
             gameTurnFlag = !gameTurnFlag;
-            
+
             if (player2.selector == "2") {
                 CPUMoves();
             } else {
